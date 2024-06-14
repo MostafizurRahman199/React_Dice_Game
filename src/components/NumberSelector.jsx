@@ -2,23 +2,28 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 
-export default function NumberSelector({selectedNumber, setSelectedNumber}) {
+export default function NumberSelector({setError, error, selectedNumber, setSelectedNumber}) {
     
     const array = [1,2,3,4,5,6];
    
-    console.log(selectedNumber);
+    console.log("Selected Number : "+selectedNumber);
 
+    const numberSelectorHandelar = (num)=>{
+        setSelectedNumber(num);
+        setError("");
+
+    }
   return (
     <NumberSelectorContainer>
-
+        <p className='error_msg'>{error}</p>
        <div className='number_inner_div'>
             {array.map((num)=>(
-                    <Box key={num} onClick={()=>setSelectedNumber(num)} isSelected={num === selectedNumber}> {num}</Box>
+                    <Box key={num} onClick={()=>numberSelectorHandelar(num)} isSelected={num === selectedNumber}> {num}</Box>
             ))}
        </div>
 
       <div>
-      <p>Select Number</p>
+      <p className='select_number'>Select Number</p>
       </div>
     </NumberSelectorContainer>
   )
@@ -54,7 +59,10 @@ const NumberSelectorContainer = styled.div `
         align-items: end;
         gap: 30px;
 
-
+ .error_msg{
+    color: red;
+    height: 4px;
+ }
 
     .number_inner_div{
        display :flex ;
@@ -68,7 +76,7 @@ const NumberSelectorContainer = styled.div `
 
    
 
-    p{
+    .select_number{
         font-size: 24px;
         font-weight: 700;
        
