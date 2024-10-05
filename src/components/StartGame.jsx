@@ -7,7 +7,7 @@ function StartGame({toogle}) {
   return (
    <Container>
    <div>
-        <img src="/public/home_pic.png" alt="home_dice_pic" />
+        <img src="/homepic.png" alt="home_dice_pic" />
    </div>
     <div className='content'>
         <h1>Dice Game</h1>

@@ -11,7 +11,7 @@ export default function RoleDice({currentDice, diceRole}) {
   return (
     <DiceContainer>
         <div className='dice_div' onClick={()=>{diceRole()}}>
-            <img className='.image_dice' src={`/public/dice_${currentDice}.png`} alt="" />
+            <img className='.image_dice' src={`/dice${currentDice}.png`} alt="" />
         </div>
         <p>Click to Dice to Roll</p>
     </DiceContainer>
